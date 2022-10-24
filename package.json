@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-billwerk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automate your subscription business with billwerk",
   "keywords": [
     "n8n-community-node-package"
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabien-billwerk/n8n-nodes-billwerk.git"
+    "url": "https://github.com/billwerk/n8n-nodes-billwerk.git"
   },
   "main": "index.js",
   "scripts": {

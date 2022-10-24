@@ -85,9 +85,7 @@ export async function getAccessToken(
 			password: credentials.clientSecret as string,
 		},
 		method: 'POST',
-		body: {
-			grant_type: 'client_credentials',
-		},
+		body: "grant_type=client_credentials",
 		url: `${baseUrl}/oauth/token`,
 		json: true,
 		returnFullResponse: true,
