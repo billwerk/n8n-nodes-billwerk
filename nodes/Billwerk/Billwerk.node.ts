@@ -7,7 +7,6 @@ import {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-	NodeOperationError,
 } from 'n8n-workflow';
 
 import {
@@ -56,6 +55,11 @@ import {
 	accountingExportOperations,
 	executeAccountingExportApi,
 } from './resources/AccountingExport';
+
+import {
+	executeTokenApi,
+	tokenOperations,
+} from './resources/Token';
 
 export class Billwerk implements INodeType {
 
@@ -122,6 +126,10 @@ export class Billwerk implements INodeType {
 						name: 'Report',
 						value: 'report',
 					},
+					{
+						name: 'Token',
+						value: 'token',
+					},
 				],
 				default: 'contract',
 			},
@@ -145,6 +153,8 @@ export class Billwerk implements INodeType {
 			...productOperations,
 
 			...reportOperations,
+
+			...tokenOperations,
 
 		],
 	};
@@ -182,6 +192,8 @@ export class Billwerk implements INodeType {
 					responseData = await executeProductApi.call(this, i, operation);
 				} else if (resource === 'report') {
 					responseData = await executeReportApi.call(this, i, operation);
+				} else if (resource === 'token') {
+					responseData = await executeTokenApi.call(this, i, operation);
 				}
 				Array.isArray(responseData)
 				? returnData.push(...responseData)

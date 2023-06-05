@@ -4,11 +4,7 @@ import {
 
 import {
 	IDataObject,
-	INodeExecutionData,
 	INodeProperties,
-	INodeType,
-	INodeTypeDescription,
-	NodeOperationError,
 } from 'n8n-workflow';
 
 import {

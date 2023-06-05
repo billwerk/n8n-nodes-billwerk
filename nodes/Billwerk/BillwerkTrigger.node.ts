@@ -12,7 +12,6 @@ import {
 
 import {
 	billwerkApiRequest,
-	getAccessToken,
 	//handleGetAll,
 	//loadResource,
 } from './GenericFunctions';
@@ -270,10 +269,7 @@ export class BillwerkTrigger implements INodeType {
 			async checkExists(this: IHookFunctions): Promise<boolean> {
 				const webhookData = this.getWorkflowStaticData('node');
 				const webhookUrl = this.getNodeWebhookUrl('default');
-				const events = this.getNodeParameter('events');
 
-
-				const token = await getAccessToken.call(this);
 				const endpoint = `/api/v1/webhooks/`;
 
 				const billwerkWebhooks = await billwerkApiRequest.call(this, 'GET',  endpoint, {}, {});
@@ -292,7 +288,6 @@ export class BillwerkTrigger implements INodeType {
 				const webhookData = this.getWorkflowStaticData('node');
 				const events = this.getNodeParameter('events', []);
 
-				const token = await getAccessToken.call(this);
 				const endpoint = `/api/v1/webhooks/`;
 
 
@@ -310,9 +305,6 @@ export class BillwerkTrigger implements INodeType {
 
 				const webhookData = this.getWorkflowStaticData('node');
 				try {
-
-
-					const token = await getAccessToken.call(this);
 					const endpoint = `/api/v1/webhooks/${webhookData.webhookId}`;
 
 					await billwerkApiRequest.call(this, 'DELETE',  endpoint, {}, {});

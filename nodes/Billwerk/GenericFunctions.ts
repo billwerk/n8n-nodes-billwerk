@@ -9,7 +9,6 @@ import {
 	IHttpRequestMethods,
 	IHttpRequestOptions,
 	ILoadOptionsFunctions,
-	INodePropertyOptions,
 	NodeApiError,
 
 } from 'n8n-workflow';
